@@ -7,7 +7,7 @@ namespace ConsoleApplication3
      *   This is the root of program and the entry point
      * 
      *   Class programm contains an array of account objects and a singel ATM object  
-     * 
+     *  Some changes
      */
     class Program
     {
