@@ -1,0 +1,5 @@
+C:\Users\Ross\source\repos\ATMProject\ATMProject\obj\Debug\ATMProject.csprojAssemblyReference.cache
+C:\Users\Ross\source\repos\ATMProject\ATMProject\obj\Debug\ATMProject.Form1.resources
+C:\Users\Ross\source\repos\ATMProject\ATMProject\obj\Debug\ATMProject.Properties.Resources.resources
+C:\Users\Ross\source\repos\ATMProject\ATMProject\obj\Debug\ATMProject.csproj.GenerateResource.cache
+C:\Users\Ross\source\repos\ATMProject\ATMProject\obj\Debug\ATMProject.csproj.CoreCompileInputs.cache
