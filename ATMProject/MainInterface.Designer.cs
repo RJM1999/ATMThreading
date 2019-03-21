@@ -38,9 +38,10 @@
             // 
             // WCashButton
             // 
-            this.WCashButton.Location = new System.Drawing.Point(61, 209);
+            this.WCashButton.Location = new System.Drawing.Point(69, 261);
+            this.WCashButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.WCashButton.Name = "WCashButton";
-            this.WCashButton.Size = new System.Drawing.Size(127, 23);
+            this.WCashButton.Size = new System.Drawing.Size(143, 29);
             this.WCashButton.TabIndex = 0;
             this.WCashButton.Text = "Withdraw Cash";
             this.WCashButton.UseVisualStyleBackColor = true;
@@ -48,27 +49,32 @@
             // 
             // CBalanceButton
             // 
-            this.CBalanceButton.Location = new System.Drawing.Point(61, 265);
+            this.CBalanceButton.Location = new System.Drawing.Point(69, 331);
+            this.CBalanceButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CBalanceButton.Name = "CBalanceButton";
-            this.CBalanceButton.Size = new System.Drawing.Size(127, 23);
+            this.CBalanceButton.Size = new System.Drawing.Size(143, 29);
             this.CBalanceButton.TabIndex = 1;
             this.CBalanceButton.Text = "Check Balance";
             this.CBalanceButton.UseVisualStyleBackColor = true;
+            this.CBalanceButton.Click += new System.EventHandler(this.CBalanceButton_Click);
             // 
             // ExitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(61, 320);
+            this.ExitButton.Location = new System.Drawing.Point(69, 400);
+            this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(127, 23);
+            this.ExitButton.Size = new System.Drawing.Size(143, 29);
             this.ExitButton.TabIndex = 2;
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // ButtonFor10p
             // 
-            this.ButtonFor10p.Location = new System.Drawing.Point(261, 209);
+            this.ButtonFor10p.Location = new System.Drawing.Point(294, 261);
+            this.ButtonFor10p.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ButtonFor10p.Name = "ButtonFor10p";
-            this.ButtonFor10p.Size = new System.Drawing.Size(75, 23);
+            this.ButtonFor10p.Size = new System.Drawing.Size(84, 29);
             this.ButtonFor10p.TabIndex = 3;
             this.ButtonFor10p.Text = "£10";
             this.ButtonFor10p.UseVisualStyleBackColor = true;
@@ -76,34 +82,37 @@
             // 
             // buttonfor50
             // 
-            this.buttonfor50.Location = new System.Drawing.Point(261, 265);
+            this.buttonfor50.Location = new System.Drawing.Point(294, 331);
+            this.buttonfor50.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonfor50.Name = "buttonfor50";
-            this.buttonfor50.Size = new System.Drawing.Size(75, 23);
+            this.buttonfor50.Size = new System.Drawing.Size(84, 29);
             this.buttonfor50.TabIndex = 6;
             this.buttonfor50.Text = "£50";
             this.buttonfor50.UseVisualStyleBackColor = true;
             // 
             // buttonfor500
             // 
-            this.buttonfor500.Location = new System.Drawing.Point(261, 320);
+            this.buttonfor500.Location = new System.Drawing.Point(294, 400);
+            this.buttonfor500.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonfor500.Name = "buttonfor500";
-            this.buttonfor500.Size = new System.Drawing.Size(75, 23);
+            this.buttonfor500.Size = new System.Drawing.Size(84, 29);
             this.buttonfor500.TabIndex = 9;
             this.buttonfor500.Text = "£500";
             this.buttonfor500.UseVisualStyleBackColor = true;
             // 
-            // ATM
+            // MainInterface
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 593);
+            this.ClientSize = new System.Drawing.Size(1130, 741);
             this.Controls.Add(this.buttonfor500);
             this.Controls.Add(this.buttonfor50);
             this.Controls.Add(this.ButtonFor10p);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.CBalanceButton);
             this.Controls.Add(this.WCashButton);
-            this.Name = "ATM";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "MainInterface";
             this.Text = "ATM";
             this.ResumeLayout(false);
 
