@@ -15,17 +15,26 @@ namespace ATMProject
         public ATM()
         {
             InitializeComponent();
-
+            ButtonFor10p.Hide();
+            buttonfor50.Hide();
+            buttonfor500.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            ButtonFor10p.Show();
+            buttonfor50.Show();
+            buttonfor500.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonFor10p_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

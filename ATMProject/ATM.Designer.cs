@@ -72,6 +72,7 @@
             this.ButtonFor10p.TabIndex = 3;
             this.ButtonFor10p.Text = "£10";
             this.ButtonFor10p.UseVisualStyleBackColor = true;
+            this.ButtonFor10p.Click += new System.EventHandler(this.ButtonFor10p_Click);
             // 
             // buttonfor50
             // 
