@@ -28,124 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.WCashButton = new System.Windows.Forms.Button();
+            this.CBalanceButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.ButtonFor10p = new System.Windows.Forms.Button();
+            this.buttonfor50 = new System.Windows.Forms.Button();
+            this.buttonfor500 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // WCashButton
             // 
-            this.button1.Location = new System.Drawing.Point(61, 209);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Withdraw Cash";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.WCashButton.Location = new System.Drawing.Point(61, 209);
+            this.WCashButton.Name = "WCashButton";
+            this.WCashButton.Size = new System.Drawing.Size(127, 23);
+            this.WCashButton.TabIndex = 0;
+            this.WCashButton.Text = "Withdraw Cash";
+            this.WCashButton.UseVisualStyleBackColor = true;
+            this.WCashButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // CBalanceButton
             // 
-            this.button2.Location = new System.Drawing.Point(61, 265);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Check Balance";
-            this.button2.UseVisualStyleBackColor = true;
+            this.CBalanceButton.Location = new System.Drawing.Point(61, 265);
+            this.CBalanceButton.Name = "CBalanceButton";
+            this.CBalanceButton.Size = new System.Drawing.Size(127, 23);
+            this.CBalanceButton.TabIndex = 1;
+            this.CBalanceButton.Text = "Check Balance";
+            this.CBalanceButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // ExitButton
             // 
-            this.button3.Location = new System.Drawing.Point(61, 333);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Exit";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ExitButton.Location = new System.Drawing.Point(61, 320);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(127, 23);
+            this.ExitButton.TabIndex = 2;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // ButtonFor10p
             // 
-            this.button4.Location = new System.Drawing.Point(261, 209);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ButtonFor10p.Location = new System.Drawing.Point(261, 209);
+            this.ButtonFor10p.Name = "ButtonFor10p";
+            this.ButtonFor10p.Size = new System.Drawing.Size(75, 23);
+            this.ButtonFor10p.TabIndex = 3;
+            this.ButtonFor10p.Text = "£10";
+            this.ButtonFor10p.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // buttonfor50
             // 
-            this.button5.Location = new System.Drawing.Point(261, 265);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonfor50.Location = new System.Drawing.Point(261, 265);
+            this.buttonfor50.Name = "buttonfor50";
+            this.buttonfor50.Size = new System.Drawing.Size(75, 23);
+            this.buttonfor50.TabIndex = 6;
+            this.buttonfor50.Text = "£50";
+            this.buttonfor50.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // buttonfor500
             // 
-            this.button6.Location = new System.Drawing.Point(386, 209);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(386, 265);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(386, 333);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(261, 333);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 8;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(507, 209);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 9;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
+            this.buttonfor500.Location = new System.Drawing.Point(261, 320);
+            this.buttonfor500.Name = "buttonfor500";
+            this.buttonfor500.Size = new System.Drawing.Size(75, 23);
+            this.buttonfor500.TabIndex = 9;
+            this.buttonfor500.Text = "£500";
+            this.buttonfor500.UseVisualStyleBackColor = true;
             // 
             // ATM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 593);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonfor500);
+            this.Controls.Add(this.buttonfor50);
+            this.Controls.Add(this.ButtonFor10p);
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.CBalanceButton);
+            this.Controls.Add(this.WCashButton);
             this.Name = "ATM";
             this.Text = "ATM";
             this.ResumeLayout(false);
@@ -154,15 +110,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button WCashButton;
+        private System.Windows.Forms.Button CBalanceButton;
+        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Button ButtonFor10p;
+        private System.Windows.Forms.Button buttonfor50;
+        private System.Windows.Forms.Button buttonfor500;
     }
 }
