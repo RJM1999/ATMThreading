@@ -1,6 +1,6 @@
 ﻿namespace ATMProject
 {
-    partial class ATM
+    partial class MainInterface
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ATMProject
 {
-    public partial class ATM : Form
+    public partial class MainInterface : Form
     {
-        public ATM()
+        public MainInterface()
         {
             InitializeComponent();
             ButtonFor10p.Hide();
