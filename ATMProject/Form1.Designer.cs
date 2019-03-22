@@ -40,6 +40,9 @@
             this.txtBxPinLogin = new System.Windows.Forms.TextBox();
             this.lblEnterPin = new System.Windows.Forms.Label();
             this.btnConfirmPin = new System.Windows.Forms.Button();
+            this.btnConfirmAccNum = new System.Windows.Forms.Button();
+            this.lblConfirmAccNum = new System.Windows.Forms.Label();
+            this.txtBxAccNum = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnWithRace
@@ -163,11 +166,42 @@
             this.btnConfirmPin.UseVisualStyleBackColor = true;
             this.btnConfirmPin.Click += new System.EventHandler(this.btnConfirmPin_Click);
             // 
+            // btnConfirmAccNum
+            // 
+            this.btnConfirmAccNum.Location = new System.Drawing.Point(452, 175);
+            this.btnConfirmAccNum.Name = "btnConfirmAccNum";
+            this.btnConfirmAccNum.Size = new System.Drawing.Size(181, 25);
+            this.btnConfirmAccNum.TabIndex = 22;
+            this.btnConfirmAccNum.Text = "Confirm Account Number";
+            this.btnConfirmAccNum.UseVisualStyleBackColor = true;
+            this.btnConfirmAccNum.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // lblConfirmAccNum
+            // 
+            this.lblConfirmAccNum.AutoSize = true;
+            this.lblConfirmAccNum.Location = new System.Drawing.Point(144, 183);
+            this.lblConfirmAccNum.Name = "lblConfirmAccNum";
+            this.lblConfirmAccNum.Size = new System.Drawing.Size(172, 13);
+            this.lblConfirmAccNum.TabIndex = 21;
+            this.lblConfirmAccNum.Text = "Please enter your Account Number\r\n";
+            this.lblConfirmAccNum.Click += new System.EventHandler(this.label1_Click_2);
+            // 
+            // txtBxAccNum
+            // 
+            this.txtBxAccNum.Location = new System.Drawing.Point(322, 180);
+            this.txtBxAccNum.Name = "txtBxAccNum";
+            this.txtBxAccNum.Size = new System.Drawing.Size(100, 20);
+            this.txtBxAccNum.TabIndex = 20;
+            this.txtBxAccNum.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnConfirmAccNum);
+            this.Controls.Add(this.lblConfirmAccNum);
+            this.Controls.Add(this.txtBxAccNum);
             this.Controls.Add(this.btnConfirmPin);
             this.Controls.Add(this.lblEnterPin);
             this.Controls.Add(this.txtBxPinLogin);
@@ -202,6 +236,9 @@
         private System.Windows.Forms.TextBox txtBxPinLogin;
         private System.Windows.Forms.Label lblEnterPin;
         private System.Windows.Forms.Button btnConfirmPin;
+        private System.Windows.Forms.Button btnConfirmAccNum;
+        private System.Windows.Forms.Label lblConfirmAccNum;
+        private System.Windows.Forms.TextBox txtBxAccNum;
     }
 }
 
