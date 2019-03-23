@@ -39,16 +39,11 @@ namespace ATMProject
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnWithRace_Click(object sender, EventArgs e)
         {
             //raceCondition condition wanted
             raceCondition = true;
             startThreads();
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
 
         }
 

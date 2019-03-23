@@ -54,7 +54,7 @@
             this.btnWithRace.TabIndex = 0;
             this.btnWithRace.Text = "With Race Conditions";
             this.btnWithRace.UseVisualStyleBackColor = true;
-            this.btnWithRace.Click += new System.EventHandler(this.button1_Click);
+            this.btnWithRace.Click += new System.EventHandler(this.btnWithRace_Click);
             // 
             // btnWithoutRace
             // 
@@ -137,7 +137,6 @@
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(0, 13);
             this.lblBalance.TabIndex = 16;
-            this.lblBalance.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtBxPinLogin
             // 
