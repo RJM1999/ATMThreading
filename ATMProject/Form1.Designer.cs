@@ -154,7 +154,6 @@
             this.lblEnterPin.Size = new System.Drawing.Size(106, 13);
             this.lblEnterPin.TabIndex = 18;
             this.lblEnterPin.Text = "Please enter your pin";
-            this.lblEnterPin.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // btnConfirmPin
             // 
@@ -174,7 +173,7 @@
             this.btnConfirmAccNum.TabIndex = 22;
             this.btnConfirmAccNum.Text = "Confirm Account Number";
             this.btnConfirmAccNum.UseVisualStyleBackColor = true;
-            this.btnConfirmAccNum.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnConfirmAccNum.Click += new System.EventHandler(this.btnConfirmAccNum_Click);
             // 
             // lblConfirmAccNum
             // 
@@ -184,7 +183,6 @@
             this.lblConfirmAccNum.Size = new System.Drawing.Size(172, 13);
             this.lblConfirmAccNum.TabIndex = 21;
             this.lblConfirmAccNum.Text = "Please enter your Account Number\r\n";
-            this.lblConfirmAccNum.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // txtBxAccNum
             // 
@@ -192,7 +190,6 @@
             this.txtBxAccNum.Name = "txtBxAccNum";
             this.txtBxAccNum.Size = new System.Drawing.Size(100, 20);
             this.txtBxAccNum.TabIndex = 20;
-            this.txtBxAccNum.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 

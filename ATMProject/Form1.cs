@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ATMProject
@@ -103,22 +96,15 @@ namespace ATMProject
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnConfirmPin_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click_2(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnConfirmAccNum_Click(object sender, EventArgs e)
         {
             //Acc num
             int accountNum;
@@ -126,7 +112,7 @@ namespace ATMProject
             //Make sure the text box has some values in it
             if(string.IsNullOrWhiteSpace(txtBxAccNum.Text) == true)
             {
-
+                Console.WriteLine("Textbox is empty");
             }
             else
             {
@@ -137,7 +123,25 @@ namespace ATMProject
                 {
                     if(atm.getAccount(i).getAccountNum() == accountNum) //Found the correct account
                     {
+                        //Set the active account to the one we have found
+                        atm.setActiveAccount(atm.getAccount(i));
 
+                        Console.WriteLine("Account has been found and is now the active account");
+
+                        //Exit out the current loop as we have got the account we need
+                        break;
+                    }
+                    else //Otherwise
+                    {
+                        //Move on
+                        //Debug
+                        Console.WriteLine("No account was found");
+
+                        //Error message
+                        MessageBox.Show("No account was found with your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        //Jump out of loop
+                        break;
                     }
                 }
             }
@@ -145,10 +149,6 @@ namespace ATMProject
             
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
 
@@ -218,6 +218,17 @@ namespace ATMProject
         {
             //Return the size of the account array
             return this.ac.GetLength(0);
+        }
+
+        public void setActiveAccount(Account newActiveAccount)
+        {
+            activeAccount = newActiveAccount;
+        }
+
+        public int getActiveAccountPin()
+        {
+            //Retuern the active accounts pin for validation
+            return activeAccount.getPin();
         }
 
     }
