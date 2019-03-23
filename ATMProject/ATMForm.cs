@@ -60,6 +60,7 @@ namespace ATMProject
         {
             //raceCondition condition wanted
             raceCondition = true;
+            
             startThreads();
 
         }
@@ -89,18 +90,27 @@ namespace ATMProject
             raceCondition = false;
             startThreads();
         }
-
+        private void atm1()
+        {
+            ATMForm thread = new ATMForm();
+            thread.Show();
+        }
+        private void atm2()
+        {
+            ATMForm thread2 = new ATMForm();
+            thread2.Show();
+        }
         private void startThreads()
         {
             //Hide race conditions buttons
             btnWithRace.Visible = false;
             btnWithoutRace.Visible = false;
-
+     
             //Get the account number
             showAccNumInput();
-
+            
             //Get PIN Number to confirm user
-            Thread thread1 = new Thread(new ThreadStart(showAccNumInput));
+            
         }
 
         private void showAccNumInput()
@@ -179,7 +189,7 @@ namespace ATMProject
         {
             //Acc num
             int accountNum;
-
+            int check = 1;
             //Make sure the text box has some values in it
             if (string.IsNullOrWhiteSpace(txtBxAccNum.Text) == true)
             {
@@ -202,7 +212,7 @@ namespace ATMProject
                         //Exit out the current loop as we have got the account we need
 
                         //Enter pin
-
+                        check = 0;
                         showPinInput();
 
                         break;
@@ -210,9 +220,14 @@ namespace ATMProject
                     else //Otherwise
                     {
                         //Move on
-                        MessageBox.Show("Account not found, Please try again");
-                    }
+                        
+                    }                   
                 }
+                if(check == 1)
+                {
+                    MessageBox.Show("Account not found, Please try again");
+                }
+                
             }
         }
 
