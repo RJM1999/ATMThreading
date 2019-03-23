@@ -48,10 +48,10 @@
             // 
             // btnWithRace
             // 
-            this.btnWithRace.Location = new System.Drawing.Point(340, 202);
-            this.btnWithRace.Margin = new System.Windows.Forms.Padding(2);
+            this.btnWithRace.Location = new System.Drawing.Point(453, 249);
+            this.btnWithRace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnWithRace.Name = "btnWithRace";
-            this.btnWithRace.Size = new System.Drawing.Size(134, 19);
+            this.btnWithRace.Size = new System.Drawing.Size(179, 23);
             this.btnWithRace.TabIndex = 0;
             this.btnWithRace.Text = "With Race Conditions";
             this.btnWithRace.UseVisualStyleBackColor = true;
@@ -59,10 +59,10 @@
             // 
             // btnWithoutRace
             // 
-            this.btnWithoutRace.Location = new System.Drawing.Point(340, 243);
-            this.btnWithoutRace.Margin = new System.Windows.Forms.Padding(2);
+            this.btnWithoutRace.Location = new System.Drawing.Point(453, 299);
+            this.btnWithoutRace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnWithoutRace.Name = "btnWithoutRace";
-            this.btnWithoutRace.Size = new System.Drawing.Size(134, 19);
+            this.btnWithoutRace.Size = new System.Drawing.Size(179, 23);
             this.btnWithoutRace.TabIndex = 1;
             this.btnWithoutRace.Text = "Without Race Conditions";
             this.btnWithoutRace.UseVisualStyleBackColor = true;
@@ -70,40 +70,43 @@
             // 
             // btn500
             // 
-            this.btn500.Location = new System.Drawing.Point(276, 265);
-            this.btn500.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn500.Location = new System.Drawing.Point(368, 326);
+            this.btn500.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn500.Name = "btn500";
-            this.btn500.Size = new System.Drawing.Size(56, 19);
+            this.btn500.Size = new System.Drawing.Size(75, 23);
             this.btn500.TabIndex = 15;
             this.btn500.Text = "£500";
             this.btn500.UseVisualStyleBackColor = true;
+            this.btn500.Click += new System.EventHandler(this.btn500_Click);
             // 
             // btn50
             // 
-            this.btn50.Location = new System.Drawing.Point(276, 220);
-            this.btn50.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn50.Location = new System.Drawing.Point(368, 271);
+            this.btn50.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn50.Name = "btn50";
-            this.btn50.Size = new System.Drawing.Size(56, 19);
+            this.btn50.Size = new System.Drawing.Size(75, 23);
             this.btn50.TabIndex = 14;
             this.btn50.Text = "£50";
             this.btn50.UseVisualStyleBackColor = true;
+            this.btn50.Click += new System.EventHandler(this.btn50_Click);
             // 
             // btn10
             // 
-            this.btn10.Location = new System.Drawing.Point(276, 175);
-            this.btn10.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn10.Location = new System.Drawing.Point(368, 215);
+            this.btn10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn10.Name = "btn10";
-            this.btn10.Size = new System.Drawing.Size(56, 19);
+            this.btn10.Size = new System.Drawing.Size(75, 23);
             this.btn10.TabIndex = 13;
             this.btn10.Text = "£10";
             this.btn10.UseVisualStyleBackColor = true;
+            this.btn10.Click += new System.EventHandler(this.btn10_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(126, 265);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnExit.Location = new System.Drawing.Point(168, 326);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(95, 19);
+            this.btnExit.Size = new System.Drawing.Size(127, 23);
             this.btnExit.TabIndex = 12;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -111,10 +114,10 @@
             // 
             // btnCheckBalance
             // 
-            this.btnCheckBalance.Location = new System.Drawing.Point(126, 220);
-            this.btnCheckBalance.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnCheckBalance.Location = new System.Drawing.Point(168, 271);
+            this.btnCheckBalance.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCheckBalance.Name = "btnCheckBalance";
-            this.btnCheckBalance.Size = new System.Drawing.Size(95, 19);
+            this.btnCheckBalance.Size = new System.Drawing.Size(127, 23);
             this.btnCheckBalance.TabIndex = 11;
             this.btnCheckBalance.Text = "Check Balance";
             this.btnCheckBalance.UseVisualStyleBackColor = true;
@@ -122,10 +125,10 @@
             // 
             // btnWithdrawCash
             // 
-            this.btnWithdrawCash.Location = new System.Drawing.Point(126, 175);
-            this.btnWithdrawCash.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnWithdrawCash.Location = new System.Drawing.Point(168, 215);
+            this.btnWithdrawCash.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnWithdrawCash.Name = "btnWithdrawCash";
-            this.btnWithdrawCash.Size = new System.Drawing.Size(95, 19);
+            this.btnWithdrawCash.Size = new System.Drawing.Size(127, 23);
             this.btnWithdrawCash.TabIndex = 10;
             this.btnWithdrawCash.Text = "Withdraw Cash";
             this.btnWithdrawCash.UseVisualStyleBackColor = true;
@@ -134,32 +137,36 @@
             // lblBalance
             // 
             this.lblBalance.AutoSize = true;
-            this.lblBalance.Location = new System.Drawing.Point(519, 181);
+            this.lblBalance.Location = new System.Drawing.Point(692, 223);
+            this.lblBalance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(0, 13);
+            this.lblBalance.Size = new System.Drawing.Size(0, 17);
             this.lblBalance.TabIndex = 16;
             // 
             // txtBxPinLogin
             // 
-            this.txtBxPinLogin.Location = new System.Drawing.Point(322, 128);
+            this.txtBxPinLogin.Location = new System.Drawing.Point(429, 158);
+            this.txtBxPinLogin.Margin = new System.Windows.Forms.Padding(4);
             this.txtBxPinLogin.Name = "txtBxPinLogin";
-            this.txtBxPinLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtBxPinLogin.Size = new System.Drawing.Size(132, 22);
             this.txtBxPinLogin.TabIndex = 17;
             // 
             // lblEnterPin
             // 
             this.lblEnterPin.AutoSize = true;
-            this.lblEnterPin.Location = new System.Drawing.Point(185, 128);
+            this.lblEnterPin.Location = new System.Drawing.Point(247, 158);
+            this.lblEnterPin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEnterPin.Name = "lblEnterPin";
-            this.lblEnterPin.Size = new System.Drawing.Size(106, 13);
+            this.lblEnterPin.Size = new System.Drawing.Size(143, 17);
             this.lblEnterPin.TabIndex = 18;
             this.lblEnterPin.Text = "Please enter your pin";
             // 
             // btnConfirmPin
             // 
-            this.btnConfirmPin.Location = new System.Drawing.Point(452, 123);
+            this.btnConfirmPin.Location = new System.Drawing.Point(603, 151);
+            this.btnConfirmPin.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmPin.Name = "btnConfirmPin";
-            this.btnConfirmPin.Size = new System.Drawing.Size(116, 25);
+            this.btnConfirmPin.Size = new System.Drawing.Size(155, 31);
             this.btnConfirmPin.TabIndex = 19;
             this.btnConfirmPin.Text = "Confirm Pin";
             this.btnConfirmPin.UseVisualStyleBackColor = true;
@@ -167,9 +174,10 @@
             // 
             // btnConfirmAccNum
             // 
-            this.btnConfirmAccNum.Location = new System.Drawing.Point(452, 175);
+            this.btnConfirmAccNum.Location = new System.Drawing.Point(603, 215);
+            this.btnConfirmAccNum.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmAccNum.Name = "btnConfirmAccNum";
-            this.btnConfirmAccNum.Size = new System.Drawing.Size(181, 25);
+            this.btnConfirmAccNum.Size = new System.Drawing.Size(241, 31);
             this.btnConfirmAccNum.TabIndex = 22;
             this.btnConfirmAccNum.Text = "Confirm Account Number";
             this.btnConfirmAccNum.UseVisualStyleBackColor = true;
@@ -178,33 +186,36 @@
             // lblConfirmAccNum
             // 
             this.lblConfirmAccNum.AutoSize = true;
-            this.lblConfirmAccNum.Location = new System.Drawing.Point(144, 183);
+            this.lblConfirmAccNum.Location = new System.Drawing.Point(192, 225);
+            this.lblConfirmAccNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblConfirmAccNum.Name = "lblConfirmAccNum";
-            this.lblConfirmAccNum.Size = new System.Drawing.Size(172, 13);
+            this.lblConfirmAccNum.Size = new System.Drawing.Size(229, 17);
             this.lblConfirmAccNum.TabIndex = 21;
             this.lblConfirmAccNum.Text = "Please enter your Account Number\r\n";
             // 
             // txtBxAccNum
             // 
-            this.txtBxAccNum.Location = new System.Drawing.Point(322, 180);
+            this.txtBxAccNum.Location = new System.Drawing.Point(429, 222);
+            this.txtBxAccNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtBxAccNum.Name = "txtBxAccNum";
-            this.txtBxAccNum.Size = new System.Drawing.Size(100, 20);
+            this.txtBxAccNum.Size = new System.Drawing.Size(132, 22);
             this.txtBxAccNum.TabIndex = 20;
             // 
             // lblWelcomeMsg
             // 
             this.lblWelcomeMsg.AutoSize = true;
-            this.lblWelcomeMsg.Location = new System.Drawing.Point(101, 55);
+            this.lblWelcomeMsg.Location = new System.Drawing.Point(135, 68);
+            this.lblWelcomeMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWelcomeMsg.Name = "lblWelcomeMsg";
-            this.lblWelcomeMsg.Size = new System.Drawing.Size(326, 13);
+            this.lblWelcomeMsg.Size = new System.Drawing.Size(430, 17);
             this.lblWelcomeMsg.TabIndex = 23;
             this.lblWelcomeMsg.Text = "Welcome to your account, please choose one of the options below.";
             // 
-            // Form1
+            // ATMForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.lblWelcomeMsg);
             this.Controls.Add(this.btnConfirmAccNum);
             this.Controls.Add(this.lblConfirmAccNum);
@@ -221,7 +232,8 @@
             this.Controls.Add(this.btnWithdrawCash);
             this.Controls.Add(this.btnWithoutRace);
             this.Controls.Add(this.btnWithRace);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "ATMForm";
             this.Text = "ATM-Threading";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace ATMProject
 {
@@ -71,7 +72,9 @@ namespace ATMProject
 
         private void btnWithdrawCash_Click(object sender, EventArgs e)
         {
-
+            btn10.Visible = true;
+            btn50.Visible = true;
+            btn500.Visible = true;
         }
 
         private void btnCheckBalance_Click(object sender, EventArgs e)
@@ -94,9 +97,10 @@ namespace ATMProject
             btnWithoutRace.Visible = false;
 
             //Get the account number
-            showAccNumInput(); 
-            
+            showAccNumInput();
+
             //Get PIN Number to confirm user
+            Thread thread1 = new Thread(new ThreadStart(showAccNumInput));
         }
 
         private void showAccNumInput()
@@ -193,7 +197,7 @@ namespace ATMProject
                         //Set the active account to the one we have found
                         atm.setActiveAccount(atm.getAccount(i));
 
-                        Console.WriteLine("Account has been found and is now the active account");
+                        MessageBox.Show("Account has been found and is now the active account");
 
                         //Exit out the current loop as we have got the account we need
 
@@ -206,9 +210,49 @@ namespace ATMProject
                     else //Otherwise
                     {
                         //Move on
-                        Console.WriteLine("Next item in the array");
+                        MessageBox.Show("Account not found, Please try again");
                     }
                 }
+            }
+        }
+
+        private void btn10_Click(object sender, EventArgs e)
+        {
+            if(atm.getActiveAccount().getBalance() < 10)
+            {
+                MessageBox.Show("You dont have enough funds");
+            }
+            else
+            {
+                MessageBox.Show("You have widthdrawn £10");
+                atm.getActiveAccount().decrementBalance(10);             
+            }
+            
+        }
+
+        private void btn50_Click(object sender, EventArgs e)
+        {
+            if (atm.getActiveAccount().getBalance() < 50)
+            {
+                MessageBox.Show("You dont have enough funds");
+            }
+            else
+            {
+                MessageBox.Show("You have widthdrawn £50");
+                atm.getActiveAccount().decrementBalance(50);
+            }
+        }
+
+        private void btn500_Click(object sender, EventArgs e)
+        {
+            if (atm.getActiveAccount().getBalance() < 500)
+            {
+                MessageBox.Show("You dont have enough funds");
+            }
+            else
+            {
+                MessageBox.Show("You have widthdrawn £500");
+                atm.getActiveAccount().decrementBalance(500);
             }
         }
     }
@@ -230,7 +274,18 @@ namespace ATMProject
             this.pin = pin;
             this.accountNum = accountNum;
         }
-
+        public Boolean decrementBalance(int amount)
+        {
+            if (this.balance > amount)
+            {
+                balance -= amount;
+                return true;
+            }
+            else
+            {
+                return true;
+            }
+        }
         //getter and setter functions for balance
         public int getBalance()
         {
