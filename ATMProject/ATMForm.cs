@@ -3,14 +3,14 @@ using System.Windows.Forms;
 
 namespace ATMProject
 {
-    public partial class Form1 : Form
+    public partial class ATMForm : Form
     {
         //Variables for class
         Account[] ac = new Account[3];
         ATM atm;
         Boolean raceCondition;
 
-        public Form1()
+        public ATMForm()
         {
             InitializeComponent();
 
@@ -21,6 +21,12 @@ namespace ATMProject
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+            //Start the program and get the race conditions
+            showRaceConditions();
+        }
+
+        private void showRaceConditions()
         {
             //Hide everything but race conditions buttons
             hideAllElements();

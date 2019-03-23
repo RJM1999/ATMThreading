@@ -1,6 +1,6 @@
 ﻿namespace ATMProject
 {
-    partial class Form1
+    partial class ATMForm
     {
         /// <summary>
         /// Required designer variable.
