@@ -23,6 +23,13 @@ namespace ATMProject
         private void Form1_Load(object sender, EventArgs e)
         {
             //Hide everything but race conditions buttons
+            hideAllElements();
+            btnWithoutRace.Visible = true;
+            btnWithRace.Visible = true;
+        }
+
+        private void hideAllElements()
+        {
             btnCheckBalance.Visible = false;
             btnExit.Visible = false;
             btnWithdrawCash.Visible = false;
@@ -36,6 +43,9 @@ namespace ATMProject
             lblConfirmAccNum.Visible = false;
             txtBxAccNum.Visible = false;
             btnConfirmAccNum.Visible = false;
+            btnWithRace.Visible = false;
+            btnWithoutRace.Visible = false;
+            lblWelcomeMsg.Visible = false;
         }
 
 
@@ -60,7 +70,8 @@ namespace ATMProject
 
         private void btnCheckBalance_Click(object sender, EventArgs e)
         {
-
+            lblBalance.Text = "Your balance is £" + atm.getActiveAccount().getBalance().ToString();
+            lblBalance.Visible = true;
         }
 
         private void btnWithoutRace_Click(object sender, EventArgs e)
@@ -84,6 +95,9 @@ namespace ATMProject
 
         private void showAccNumInput()
         {
+            //Hide all
+            hideAllElements();
+
             //Show account number buttons
             lblConfirmAccNum.Visible = true;
             txtBxAccNum.Visible = true;
@@ -91,11 +105,63 @@ namespace ATMProject
 
         }
 
+        private void showPinInput()
+        {
+            //Hide all
+            hideAllElements();
+
+            //Show pin enter buttons
+            lblEnterPin.Visible = true;
+            txtBxPinLogin.Visible = true;
+            btnConfirmPin.Visible = true;
+        }
+
        
 
         private void btnConfirmPin_Click(object sender, EventArgs e)
         {
+            //Pin num
+            int pinNum;
 
+            //Make sure the text box has something in it
+            if(string.IsNullOrWhiteSpace(txtBxPinLogin.Text) == true)
+            {
+                Console.WriteLine("Textbox is empty");
+            }
+            else
+            {
+                //Get pin number
+                pinNum = Convert.ToInt32(txtBxPinLogin.Text);
+
+                if(atm.getActiveAccountPin() == pinNum)
+                {
+                    //Debug msg
+                    Console.WriteLine("Correct PIN entered");
+
+                    //Show account screen
+                    showAccountScreen();
+                }
+                else
+                {
+                    //Debug msg
+                    Console.WriteLine("Wrong pin");
+
+                    //Error message for user
+                    MessageBox.Show("Incorrect PIN entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void showAccountScreen()
+        {
+            //Hide all elements
+            hideAllElements();
+
+            lblWelcomeMsg.Visible = true;
+
+            btnCheckBalance.Visible = true;
+            btnWithdrawCash.Visible = true;
+            btnExit.Visible = true;
         }
 
 
@@ -103,9 +169,9 @@ namespace ATMProject
         {
             //Acc num
             int accountNum;
-            
+
             //Make sure the text box has some values in it
-            if(string.IsNullOrWhiteSpace(txtBxAccNum.Text) == true)
+            if (string.IsNullOrWhiteSpace(txtBxAccNum.Text) == true)
             {
                 Console.WriteLine("Textbox is empty");
             }
@@ -116,7 +182,7 @@ namespace ATMProject
 
                 for (int i = 0; i < atm.getNumOfAccounts(); i++)
                 {
-                    if(atm.getAccount(i).getAccountNum() == accountNum) //Found the correct account
+                    if (atm.getAccount(i).getAccountNum() == accountNum) //Found the correct account
                     {
                         //Set the active account to the one we have found
                         atm.setActiveAccount(atm.getAccount(i));
@@ -124,26 +190,21 @@ namespace ATMProject
                         Console.WriteLine("Account has been found and is now the active account");
 
                         //Exit out the current loop as we have got the account we need
+
+                        //Enter pin
+
+                        showPinInput();
+
                         break;
                     }
                     else //Otherwise
                     {
                         //Move on
-                        //Debug
-                        Console.WriteLine("No account was found");
-
-                        //Error message
-                        MessageBox.Show("No account was found with your input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        //Jump out of loop
-                        break;
+                        Console.WriteLine("Next item in the array");
                     }
                 }
             }
-
-            
         }
-
     }
 
 
@@ -207,6 +268,11 @@ namespace ATMProject
         public Account getAccount(int i)
         {
             return ac[i];
+        }
+
+        public Account getActiveAccount()
+        {
+            return activeAccount;
         }
 
         public int getNumOfAccounts()

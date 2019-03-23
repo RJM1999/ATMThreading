@@ -43,6 +43,7 @@
             this.btnConfirmAccNum = new System.Windows.Forms.Button();
             this.lblConfirmAccNum = new System.Windows.Forms.Label();
             this.txtBxAccNum = new System.Windows.Forms.TextBox();
+            this.lblWelcomeMsg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnWithRace
@@ -190,11 +191,21 @@
             this.txtBxAccNum.Size = new System.Drawing.Size(100, 20);
             this.txtBxAccNum.TabIndex = 20;
             // 
+            // lblWelcomeMsg
+            // 
+            this.lblWelcomeMsg.AutoSize = true;
+            this.lblWelcomeMsg.Location = new System.Drawing.Point(101, 55);
+            this.lblWelcomeMsg.Name = "lblWelcomeMsg";
+            this.lblWelcomeMsg.Size = new System.Drawing.Size(326, 13);
+            this.lblWelcomeMsg.TabIndex = 23;
+            this.lblWelcomeMsg.Text = "Welcome to your account, please choose one of the options below.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblWelcomeMsg);
             this.Controls.Add(this.btnConfirmAccNum);
             this.Controls.Add(this.lblConfirmAccNum);
             this.Controls.Add(this.txtBxAccNum);
@@ -235,6 +246,7 @@
         private System.Windows.Forms.Button btnConfirmAccNum;
         private System.Windows.Forms.Label lblConfirmAccNum;
         private System.Windows.Forms.TextBox txtBxAccNum;
+        private System.Windows.Forms.Label lblWelcomeMsg;
     }
 }
 
