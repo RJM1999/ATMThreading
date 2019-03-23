@@ -84,6 +84,22 @@ namespace ATMProject
 
         private void startThreads()
         {
+            //Hide race conditions buttons
+            btnWithRace.Visible = false;
+            btnWithoutRace.Visible = false;
+
+            //Get the account number
+            showAccNumInput(); 
+            
+            //Get PIN Number to confirm user
+        }
+
+        private void showAccNumInput()
+        {
+            //Show account number buttons
+            lblConfirmAccNum.Visible = true;
+            txtBxAccNum.Visible = true;
+            btnConfirmAccNum.Visible = true;
 
         }
 
@@ -104,7 +120,29 @@ namespace ATMProject
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            //Acc num
+            int accountNum;
+            
+            //Make sure the text box has some values in it
+            if(string.IsNullOrWhiteSpace(txtBxAccNum.Text) == true)
+            {
 
+            }
+            else
+            {
+                //Get the account number
+                accountNum = Convert.ToInt32(txtBxAccNum.Text);
+
+                for (int i = 0; i < atm.getNumOfAccounts(); i++)
+                {
+                    if(atm.getAccount(i).getAccountNum() == accountNum) //Found the correct account
+                    {
+
+                    }
+                }
+            }
+
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -141,6 +179,16 @@ namespace ATMProject
             this.balance = newBalance;
         }
 
+        public int getAccountNum()
+        {
+            return this.accountNum;
+        }
+
+        public int getPin()
+        {
+            return this.pin;
+        }
+
     }
     /* 
      *      This is out main ATM class that preforms the actions outlined in the assigment hand out
@@ -159,6 +207,17 @@ namespace ATMProject
         public ATM(Account[] ac)
         {
             this.ac = ac;
+        }
+
+        public Account getAccount(int i)
+        {
+            return ac[i];
+        }
+
+        public int getNumOfAccounts()
+        {
+            //Return the size of the account array
+            return this.ac.GetLength(0);
         }
 
     }
