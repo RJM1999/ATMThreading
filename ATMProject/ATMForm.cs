@@ -60,7 +60,6 @@ namespace ATMProject
         {
             //raceCondition condition wanted
             raceCondition = true;
-            
             startThreads();
 
         }
@@ -90,29 +89,27 @@ namespace ATMProject
             raceCondition = false;
             startThreads();
         }
-        private void atm1()
-        {
-            ATMForm thread = new ATMForm();
-            thread.Show();
-        }
-        private void atm2()
-        {
-            ATMForm thread2 = new ATMForm();
-            thread2.Show();
-        }
+
         private void startThreads()
         {
             //Hide race conditions buttons
             btnWithRace.Visible = false;
             btnWithoutRace.Visible = false;
-     
+
             //Get the account number
             showAccNumInput();
-            
+            Thread condition = new Thread(threading);
+            condition.Start();
             //Get PIN Number to confirm user
             
         }
-
+        private void threading()
+        {
+            atm.getActiveAccount();
+            ATMForm thread = new ATMForm();
+            thread.Show();
+            
+        }
         private void showAccNumInput()
         {
             //Hide all
@@ -291,7 +288,7 @@ namespace ATMProject
         }
         public Boolean decrementBalance(int amount)
         {
-            if (this.balance > amount)
+            if (this.balance >= amount)
             {
                 balance -= amount;
                 return true;
