@@ -281,7 +281,7 @@ namespace ATMProject
         }
         public Boolean decrementBalance(int amount)
         {
-            if (this.balance > amount)
+            if (this.balance >= amount)
             {
                 balance -= amount;
                 return true;
