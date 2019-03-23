@@ -98,9 +98,9 @@ namespace ATMProject
 
             //Get the account number
             showAccNumInput();
-
+            ATMForm thread = new ATMForm();
             //Get PIN Number to confirm user
-            Thread thread1 = new Thread(new ThreadStart(showAccNumInput));
+            //Thread thread1 = new Thread(new ThreadStart(thread));
         }
 
         private void showAccNumInput()
@@ -179,7 +179,7 @@ namespace ATMProject
         {
             //Acc num
             int accountNum;
-
+            int check = 1;
             //Make sure the text box has some values in it
             if (string.IsNullOrWhiteSpace(txtBxAccNum.Text) == true)
             {
@@ -202,7 +202,7 @@ namespace ATMProject
                         //Exit out the current loop as we have got the account we need
 
                         //Enter pin
-
+                        check = 0;
                         showPinInput();
 
                         break;
@@ -210,9 +210,14 @@ namespace ATMProject
                     else //Otherwise
                     {
                         //Move on
-                        MessageBox.Show("Account not found, Please try again");
-                    }
+                        
+                    }                   
                 }
+                if(check == 1)
+                {
+                    MessageBox.Show("Account not found, Please try again");
+                }
+                
             }
         }
 
