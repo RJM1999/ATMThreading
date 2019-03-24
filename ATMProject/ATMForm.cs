@@ -9,6 +9,9 @@ namespace ATMProject
         //Variables for class
         Account[] ac = new Account[3];
         ATM atm;
+        Thread atm2;
+        ThreadStart threadStart;
+        ATMForm secondFrom;
         Boolean raceCondition;
 
         public ATMForm()
@@ -115,10 +118,10 @@ namespace ATMProject
 
             //Get PIN Number to confirm user
 
-            ATMForm secondFrom = new ATMForm();
+            secondFrom = new ATMForm();
             secondFrom.Show();
-
-            Thread atm2 = new System.Threading.Thread(new System.Threading.ThreadStart(secondFrom.showAccNumInput));
+            threadStart = secondFrom.showAccNumInput;
+            atm2 = new System.Threading.Thread(new System.Threading.ThreadStart(threadStart));
             atm2.Start();
         }
 
@@ -254,7 +257,10 @@ namespace ATMProject
             else
             {
                 MessageBox.Show("You have widthdrawn £10");
-                atm.getActiveAccount().decrementBalance(10);             
+                secondFrom.atm.getActiveAccount().decrementBalance(10);
+                atm.getActiveAccount().decrementBalance(10);
+                
+                
             }
             
         }
