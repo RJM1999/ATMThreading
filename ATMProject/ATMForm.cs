@@ -19,6 +19,9 @@ namespace ATMProject
             ac[1] = new Account(750, 2222, 222222);
             ac[2] = new Account(3000, 3333, 333333);
             atm = new ATM(ac);
+
+            Thread atm1 = new Thread(()=>showRaceConditions());
+            atm1.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,28 +34,39 @@ namespace ATMProject
         {
             //Hide everything but race conditions buttons
             hideAllElements();
-            btnWithoutRace.Visible = true;
-            btnWithRace.Visible = true;
+            this.Invoke((MethodInvoker)delegate
+            {
+                btnWithoutRace.Visible = true;
+                btnWithRace.Visible = true;
+            });
         }
 
         private void hideAllElements()
         {
-            btnCheckBalance.Visible = false;
-            btnExit.Visible = false;
-            btnWithdrawCash.Visible = false;
-            btn10.Visible = false;
-            btn50.Visible = false;
-            btn500.Visible = false;
-            lblBalance.Visible = false;
-            lblEnterPin.Visible = false;
-            txtBxPinLogin.Visible = false;
-            btnConfirmPin.Visible = false;
-            lblConfirmAccNum.Visible = false;
-            txtBxAccNum.Visible = false;
-            btnConfirmAccNum.Visible = false;
-            btnWithRace.Visible = false;
-            btnWithoutRace.Visible = false;
-            lblWelcomeMsg.Visible = false;
+            if (!this.IsHandleCreated)
+            {
+                this.CreateHandle();
+            }
+
+            this.Invoke((MethodInvoker)delegate
+            {
+                btnCheckBalance.Visible = false;
+                btnExit.Visible = false;
+                btnWithdrawCash.Visible = false;
+                btn10.Visible = false;
+                btn50.Visible = false;
+                btn500.Visible = false;
+                lblBalance.Visible = false;
+                lblEnterPin.Visible = false;
+                txtBxPinLogin.Visible = false;
+                btnConfirmPin.Visible = false;
+                lblConfirmAccNum.Visible = false;
+                txtBxAccNum.Visible = false;
+                btnConfirmAccNum.Visible = false;
+                btnWithRace.Visible = false;
+                btnWithoutRace.Visible = false;
+                lblWelcomeMsg.Visible = false;
+            });
         }
 
 
@@ -98,9 +112,14 @@ namespace ATMProject
 
             //Get the account number
             showAccNumInput();
-            ATMForm thread = new ATMForm();
+
             //Get PIN Number to confirm user
-            //Thread thread1 = new Thread(new ThreadStart(thread));
+
+            ATMForm secondFrom = new ATMForm();
+            secondFrom.Show();
+
+            Thread atm2 = new System.Threading.Thread(new System.Threading.ThreadStart(secondFrom.showAccNumInput));
+            atm2.Start();
         }
 
         private void showAccNumInput()
@@ -109,10 +128,12 @@ namespace ATMProject
             hideAllElements();
 
             //Show account number buttons
-            lblConfirmAccNum.Visible = true;
-            txtBxAccNum.Visible = true;
-            btnConfirmAccNum.Visible = true;
-
+            this.Invoke((MethodInvoker)delegate
+            {
+                lblConfirmAccNum.Visible = true;
+                txtBxAccNum.Visible = true;
+                btnConfirmAccNum.Visible = true;
+            });
         }
 
         private void showPinInput()
@@ -121,9 +142,12 @@ namespace ATMProject
             hideAllElements();
 
             //Show pin enter buttons
-            lblEnterPin.Visible = true;
-            txtBxPinLogin.Visible = true;
-            btnConfirmPin.Visible = true;
+            this.Invoke((MethodInvoker)delegate
+            {
+                lblEnterPin.Visible = true;
+                txtBxPinLogin.Visible = true;
+                btnConfirmPin.Visible = true;
+            });
         }
 
        
