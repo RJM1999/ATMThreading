@@ -9,10 +9,12 @@ namespace ATMProject
         //Variables for class
         Account[] ac = new Account[3];
         ATM atm;
+        Thread atm1;
         Thread atm2;
         ThreadStart threadStart;
         ATMForm secondFrom;
         Boolean raceCondition;
+        delegate void getbalance();
 
         public ATMForm()
         {
@@ -22,8 +24,7 @@ namespace ATMProject
             ac[1] = new Account(750, 2222, 222222);
             ac[2] = new Account(3000, 3333, 333333);
             atm = new ATM(ac);
-
-            Thread atm1 = new Thread(()=>showRaceConditions());
+            atm1 = new Thread(()=>showRaceConditions());
             atm1.Start();
         }
 
@@ -117,7 +118,10 @@ namespace ATMProject
             showAccNumInput();
 
             //Get PIN Number to confirm user
-
+            /*
+            firstForm = new ATMForm();
+            firstForm.Show();
+            */
             secondFrom = new ATMForm();
             secondFrom.Show();
             threadStart = secondFrom.showAccNumInput;
@@ -257,12 +261,10 @@ namespace ATMProject
             else
             {
                 MessageBox.Show("You have widthdrawn £10");
-                secondFrom.atm.getActiveAccount().decrementBalance(10);
                 atm.getActiveAccount().decrementBalance(10);
-                
-                
+                //secondFrom.atm.getActiveAccount().decrementBalance(10);
             }
-            
+
         }
 
         private void btn50_Click(object sender, EventArgs e)
@@ -274,8 +276,8 @@ namespace ATMProject
             else
             {
                 MessageBox.Show("You have widthdrawn £50");
-                secondFrom.atm.getActiveAccount().decrementBalance(50);
                 atm.getActiveAccount().decrementBalance(50);
+                //secondFrom.atm.getActiveAccount().decrementBalance(50);
             }
         }
 
@@ -288,8 +290,8 @@ namespace ATMProject
             else
             {
                 MessageBox.Show("You have widthdrawn £500");
-                secondFrom.atm.getActiveAccount().decrementBalance(500);
                 atm.getActiveAccount().decrementBalance(500);
+                //secondFrom.atm.getActiveAccount().decrementBalance(500);
             }
         }
     }
