@@ -274,6 +274,7 @@ namespace ATMProject
             else
             {
                 MessageBox.Show("You have widthdrawn £50");
+                secondFrom.atm.getActiveAccount().decrementBalance(50);
                 atm.getActiveAccount().decrementBalance(50);
             }
         }
@@ -287,6 +288,7 @@ namespace ATMProject
             else
             {
                 MessageBox.Show("You have widthdrawn £500");
+                secondFrom.atm.getActiveAccount().decrementBalance(500);
                 atm.getActiveAccount().decrementBalance(500);
             }
         }
