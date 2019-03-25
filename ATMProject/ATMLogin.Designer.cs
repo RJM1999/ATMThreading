@@ -33,6 +33,7 @@
             this.lblPIN = new System.Windows.Forms.Label();
             this.txtBxPIN = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAccNum
@@ -69,7 +70,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(305, 216);
+            this.btnSubmit.Location = new System.Drawing.Point(307, 219);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(210, 44);
             this.btnSubmit.TabIndex = 4;
@@ -77,11 +78,22 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(547, 219);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(108, 44);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // ATMLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtBxPIN);
             this.Controls.Add(this.lblPIN);
@@ -101,5 +113,6 @@
         private System.Windows.Forms.Label lblPIN;
         private System.Windows.Forms.TextBox txtBxPIN;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnExit;
     }
 }

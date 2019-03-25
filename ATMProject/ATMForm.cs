@@ -72,7 +72,7 @@ namespace ATMProject
         {
             if(activeAccount.getBalance() < 10)
             {
-                MessageBox.Show("You dont have enough funds");
+                MessageBox.Show("You dont have enough funds", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -86,7 +86,7 @@ namespace ATMProject
         {
             if (activeAccount.getBalance() < 50)
             {
-                MessageBox.Show("You dont have enough funds");
+                MessageBox.Show("You dont have enough funds", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -99,7 +99,7 @@ namespace ATMProject
         {
             if (activeAccount.getBalance() < 500)
             {
-                MessageBox.Show("You dont have enough funds");
+                MessageBox.Show("You dont have enough funds", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

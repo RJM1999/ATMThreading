@@ -36,16 +36,25 @@ namespace ATMProject
                 pinNum = Convert.ToInt32(txtBxPIN.Text);
                 accountNum = Convert.ToInt32(txtBxAccNum.Text);
 
+                //Check the account exists
                 if(Program.returnAccount(accountNum, pinNum) != null)
                 {
+                    //Create the account management page and show it
                     ATMForm form = new ATMForm(Program.returnAccount(accountNum, pinNum));
                     form.Show();
                 }
                 else
                 {
-
+                    //Show error message
+                    MessageBox.Show("No account was found with the information you provided", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            //Exit the program 
+            Application.Exit();
         }
     }
 }
