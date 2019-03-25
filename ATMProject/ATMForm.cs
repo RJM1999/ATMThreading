@@ -26,12 +26,14 @@ namespace ATMProject
             atm = new ATM(ac);
             atm1 = new Thread(()=>showRaceConditions());
             atm1.Start();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //Start the program and get the race conditions
             showRaceConditions();
+
         }
 
         private void showRaceConditions()
@@ -43,6 +45,7 @@ namespace ATMProject
                 btnWithoutRace.Visible = true;
                 btnWithRace.Visible = true;
             });
+            Console.WriteLine(this);
         }
 
         private void hideAllElements()
@@ -261,8 +264,15 @@ namespace ATMProject
             else
             {
                 MessageBox.Show("You have widthdrawn £10");
-                atm.getActiveAccount().decrementBalance(10);
-                //secondFrom.atm.getActiveAccount().decrementBalance(10);
+                this.atm.getActiveAccount().decrementBalance(10);
+                if(sender == secondFrom)
+                {
+                    
+                }
+                else
+                {
+                    secondFrom.atm.getActiveAccount().decrementBalance(10);
+                }
             }
 
         }
