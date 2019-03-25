@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATMProject
 {
-    class ATM
+    public class ATM
     {
         //local referance to the array of accounts
         private Account[] ac;

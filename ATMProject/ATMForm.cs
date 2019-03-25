@@ -6,81 +6,34 @@ namespace ATMProject
 {
     public partial class ATMForm : Form
     {
-        //Variables for class
-        ATM atm;
-
-        Boolean raceCondition;
-        delegate void getbalance();
+        private Account activeAccount;
 
         public ATMForm()
         {
+            InitializeComponent();          
+        }
+
+        public ATMForm(Account loginAccount)
+        {
+            activeAccount = loginAccount;
             InitializeComponent();
-
-            Account[] ac = new Account[3];
-
-            ac[0] = new Account(300, 1111, 111111);
-            ac[1] = new Account(750, 2222, 222222);
-            ac[2] = new Account(3000, 3333, 333333);
-            atm = new ATM(ac);
-
-            showRaceConditions();
-            
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void ATMForm_Load(object sender, EventArgs e)
         {
-            //Start the program and get the race conditions
-            showRaceConditions();
 
-        }
-
-        private void showRaceConditions()
-        {
-            //Hide everything but race conditions buttons
-            hideAllElements();
-            this.Invoke((MethodInvoker)delegate
-            {
-                btnWithoutRace.Visible = true;
-                btnWithRace.Visible = true;
-            });
-            Console.WriteLine(this);
         }
 
         private void hideAllElements()
         {
-            if (!this.IsHandleCreated)
-            {
-                this.CreateHandle();
-            }
-
-            this.Invoke((MethodInvoker)delegate
-            {
-                btnCheckBalance.Visible = false;
-                btnExit.Visible = false;
-                btnWithdrawCash.Visible = false;
-                btn10.Visible = false;
-                btn50.Visible = false;
-                btn500.Visible = false;
-                lblBalance.Visible = false;
-                lblEnterPin.Visible = false;
-                txtBxPinLogin.Visible = false;
-                btnConfirmPin.Visible = false;
-                lblConfirmAccNum.Visible = false;
-                txtBxAccNum.Visible = false;
-                btnConfirmAccNum.Visible = false;
-                btnWithRace.Visible = false;
-                btnWithoutRace.Visible = false;
-                lblWelcomeMsg.Visible = false;
-            });
-        }
-
-
-        private void btnWithRace_Click(object sender, EventArgs e)
-        {
-            //raceCondition condition wanted
-            raceCondition = true;
-            startThreads();
-
+            btnCheckBalance.Visible = false;
+            btnExit.Visible = false;
+            btnWithdrawCash.Visible = false;
+            btn10.Visible = false;
+            btn50.Visible = false;
+            btn500.Visible = false;
+            lblBalance.Visible = false;
+            lblWelcomeMsg.Visible = false;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -98,105 +51,8 @@ namespace ATMProject
 
         private void btnCheckBalance_Click(object sender, EventArgs e)
         {
-            lblBalance.Text = "Your balance is £" + atm.getActiveAccount().getBalance().ToString();
+            lblBalance.Text = "Your balance is £" + activeAccount.getBalance().ToString();
             lblBalance.Visible = true;
-        }
-
-        private void btnWithoutRace_Click(object sender, EventArgs e)
-        {
-            //Racecondition not wanted
-            raceCondition = false;
-            startThreads();
-        }
-
-        private void startThreads()
-        {
-            //Hide race conditions buttons
-            btnWithRace.Visible = false;
-            btnWithoutRace.Visible = false;
-
-            //Get the account number
-            showAccNumInput();
-
-            //Get PIN Number to confirm user
-            /*
-            firstForm = new ATMForm();
-            firstForm.Show();
-            */
-            //secondFrom = new ATMForm();
-            //secondFrom.Show();
-            //threadStart = secondFrom.showAccNumInput;
-            //atm2 = new System.Threading.Thread(new System.Threading.ThreadStart(threadStart));
-            //atm2.Start();
-
-            ATMForm secondForm = new ATMForm();
-            secondForm.Show();
-
-            Thread atm2 = new Thread(secondForm.showAccNumInput);
-        }
-
-        private void showAccNumInput()
-        {
-            //Hide all
-            hideAllElements();
-
-            //Show account number buttons
-            this.Invoke((MethodInvoker)delegate
-            {
-                lblConfirmAccNum.Visible = true;
-                txtBxAccNum.Visible = true;
-                btnConfirmAccNum.Visible = true;
-            });
-        }
-
-        private void showPinInput()
-        {
-            //Hide all
-            hideAllElements();
-
-            //Show pin enter buttons
-            this.Invoke((MethodInvoker)delegate
-            {
-                lblEnterPin.Visible = true;
-                txtBxPinLogin.Visible = true;
-                btnConfirmPin.Visible = true;
-            });
-        }
-
-       
-
-        private void btnConfirmPin_Click(object sender, EventArgs e)
-        {
-            //Pin num
-            int pinNum;
-
-            //Make sure the text box has something in it
-            if(string.IsNullOrWhiteSpace(txtBxPinLogin.Text) == true)
-            {
-                Console.WriteLine("Textbox is empty");
-            }
-            else
-            {
-                //Get pin number
-                pinNum = Convert.ToInt32(txtBxPinLogin.Text);
-
-                if(atm.getActiveAccountPin() == pinNum)
-                {
-                    //Debug msg
-                    Console.WriteLine("Correct PIN entered");
-
-                    //Show account screen
-                    showAccountScreen();
-                }
-                else
-                {
-                    //Debug msg
-                    Console.WriteLine("Wrong pin");
-
-                    //Error message for user
-                    MessageBox.Show("Incorrect PIN entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
         }
 
         private void showAccountScreen()
@@ -212,104 +68,46 @@ namespace ATMProject
         }
 
 
-        private void btnConfirmAccNum_Click(object sender, EventArgs e)
-        {
-            //Acc num
-            int accountNum;
-            int check = 1;
-            //Make sure the text box has some values in it
-            if (string.IsNullOrWhiteSpace(txtBxAccNum.Text) == true)
-            {
-                Console.WriteLine("Textbox is empty");
-            }
-            else
-            {
-                //Get the account number
-                accountNum = Convert.ToInt32(txtBxAccNum.Text);
-
-                for (int i = 0; i < atm.getNumOfAccounts(); i++)
-                {
-                    if (atm.getAccount(i).getAccountNum() == accountNum) //Found the correct account
-                    {
-                        //Set the active account to the one we have found
-                        atm.setActiveAccount(atm.getAccount(i));
-
-                        MessageBox.Show("Account has been found and is now the active account");
-
-                        //Exit out the current loop as we have got the account we need
-
-                        //Enter pin
-                        check = 0;
-                        showPinInput();
-
-                        break;
-                    }
-                    else //Otherwise
-                    {
-                        //Move on
-                        
-                    }                   
-                }
-                if(check == 1)
-                {
-                    MessageBox.Show("Account not found, Please try again");
-                }
-                
-            }
-        }
-
         private void btn10_Click(object sender, EventArgs e)
         {
-            if(atm.getActiveAccount().getBalance() < 10)
+            if(activeAccount.getBalance() < 10)
             {
                 MessageBox.Show("You dont have enough funds");
             }
             else
             {
                 MessageBox.Show("You have widthdrawn £10");
-                this.atm.getActiveAccount().decrementBalance(10);
+                activeAccount.decrementBalance(10);
             }
 
         }
 
         private void btn50_Click(object sender, EventArgs e)
         {
-            if (atm.getActiveAccount().getBalance() < 50)
+            if (activeAccount.getBalance() < 50)
             {
                 MessageBox.Show("You dont have enough funds");
             }
             else
             {
                 MessageBox.Show("You have widthdrawn £50");
-                atm.getActiveAccount().decrementBalance(50);
-                //secondFrom.atm.getActiveAccount().decrementBalance(50);
+                activeAccount.decrementBalance(50);
             }
         }
 
         private void btn500_Click(object sender, EventArgs e)
         {
-            if (atm.getActiveAccount().getBalance() < 500)
+            if (activeAccount.getBalance() < 500)
             {
                 MessageBox.Show("You dont have enough funds");
             }
             else
             {
                 MessageBox.Show("You have widthdrawn £500");
-                atm.getActiveAccount().decrementBalance(500);
-                //secondFrom.atm.getActiveAccount().decrementBalance(500);
+                activeAccount.decrementBalance(500);
             }
         }
     }
-
-
-
-
-
-    /* 
-     *      This is out main ATM class that preforms the actions outlined in the assigment hand out
-     *      
-     *      the constutor contains the main funcitonality.
-     */
 }
 
 
