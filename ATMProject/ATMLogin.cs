@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -40,8 +41,7 @@ namespace ATMProject
                 if(Program.returnAccount(accountNum, pinNum) != null)
                 {
                     //Create the account management page and show it
-                    ATMForm form = new ATMForm(Program.returnAccount(accountNum, pinNum));
-                    form.Show();
+                    new Thread(() => new ATMForm(Program.returnAccount(accountNum, pinNum)).ShowDialog()).Start();
                 }
                 else
                 {

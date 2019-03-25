@@ -7,6 +7,7 @@ namespace ATMProject
     public partial class ATMForm : Form
     {
         private Account activeAccount;
+        private readonly object balanceLock = new object();
 
         public ATMForm()
         {
@@ -72,11 +73,13 @@ namespace ATMProject
         {
             if(activeAccount.getBalance() < 10)
             {
+                
                 MessageBox.Show("You dont have enough funds", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("You have widthdrawn £10");
+                Thread.Sleep(5000);
+                //MessageBox.Show("You have widthdrawn £10");
                 activeAccount.decrementBalance(10);
             }
 
