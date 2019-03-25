@@ -7,12 +7,8 @@ namespace ATMProject
     public partial class ATMForm : Form
     {
         //Variables for class
-        Account[] ac = new Account[3];
         ATM atm;
-        Thread atm1;
-        Thread atm2;
-        ThreadStart threadStart;
-        ATMForm secondFrom;
+
         Boolean raceCondition;
         delegate void getbalance();
 
@@ -20,12 +16,14 @@ namespace ATMProject
         {
             InitializeComponent();
 
+            Account[] ac = new Account[3];
+
             ac[0] = new Account(300, 1111, 111111);
             ac[1] = new Account(750, 2222, 222222);
             ac[2] = new Account(3000, 3333, 333333);
             atm = new ATM(ac);
-            atm1 = new Thread(()=>showRaceConditions());
-            atm1.Start();
+
+            showRaceConditions();
             
         }
 
@@ -125,11 +123,16 @@ namespace ATMProject
             firstForm = new ATMForm();
             firstForm.Show();
             */
-            secondFrom = new ATMForm();
-            secondFrom.Show();
-            threadStart = secondFrom.showAccNumInput;
-            atm2 = new System.Threading.Thread(new System.Threading.ThreadStart(threadStart));
-            atm2.Start();
+            //secondFrom = new ATMForm();
+            //secondFrom.Show();
+            //threadStart = secondFrom.showAccNumInput;
+            //atm2 = new System.Threading.Thread(new System.Threading.ThreadStart(threadStart));
+            //atm2.Start();
+
+            ATMForm secondForm = new ATMForm();
+            secondForm.Show();
+
+            Thread atm2 = new Thread(secondForm.showAccNumInput);
         }
 
         private void showAccNumInput()
@@ -265,14 +268,6 @@ namespace ATMProject
             {
                 MessageBox.Show("You have widthdrawn £10");
                 this.atm.getActiveAccount().decrementBalance(10);
-                if(sender == secondFrom)
-                {
-                    
-                }
-                else
-                {
-                    secondFrom.atm.getActiveAccount().decrementBalance(10);
-                }
             }
 
         }
@@ -309,53 +304,7 @@ namespace ATMProject
 
 
 
-    class Account
-    {
-        //the attributes for the account
-        private int balance;
-        private int pin;
-        private int accountNum;
 
-        // a constructor that takes initial values for each of the attributes (balance, pin, accountNumber)
-        public Account(int balance, int pin, int accountNum)
-        {
-            this.balance = balance;
-            this.pin = pin;
-            this.accountNum = accountNum;
-        }
-        public Boolean decrementBalance(int amount)
-        {
-            if (this.balance >= amount)
-            {
-                balance -= amount;
-                return true;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        //getter and setter functions for balance
-        public int getBalance()
-        {
-            return balance;
-        }
-        public void setBalance(int newBalance)
-        {
-            this.balance = newBalance;
-        }
-
-        public int getAccountNum()
-        {
-            return this.accountNum;
-        }
-
-        public int getPin()
-        {
-            return this.pin;
-        }
-
-    }
     /* 
      *      This is out main ATM class that preforms the actions outlined in the assigment hand out
      *      
