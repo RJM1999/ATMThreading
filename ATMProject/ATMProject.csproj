@@ -46,16 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
     <Compile Include="ATMForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ATMForm.Designer.cs">
       <DependentUpon>ATMForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ATM.cs" />
+    <Compile Include="ATMLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ATMLogin.Designer.cs">
+      <DependentUpon>ATMLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ATMStartScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ATMStartScreen.Designer.cs">
+      <DependentUpon>ATMStartScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ATMForm.resx">
       <DependentUpon>ATMForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ATMLogin.resx">
+      <DependentUpon>ATMLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ATMStartScreen.resx">
+      <DependentUpon>ATMStartScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
