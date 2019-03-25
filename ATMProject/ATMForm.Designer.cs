@@ -1,6 +1,6 @@
 ﻿namespace ATMProject
 {
-    partial class ATMForm
+    partial class ATMForm1
     {
         /// <summary>
         /// Required designer variable.
@@ -211,7 +211,7 @@
             this.lblWelcomeMsg.TabIndex = 23;
             this.lblWelcomeMsg.Text = "Welcome to your account, please choose one of the options below.";
             // 
-            // ATMForm
+            // ATMForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -233,7 +233,7 @@
             this.Controls.Add(this.btnWithoutRace);
             this.Controls.Add(this.btnWithRace);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ATMForm";
+            this.Name = "ATMForm1";
             this.Text = "ATM-Threading";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

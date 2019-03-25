@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace ATMProject
 {
-    public partial class ATMForm : Form
+    public partial class ATMForm1 : Form
     {
         //Variables for class
         Account[] ac = new Account[3];
@@ -12,11 +12,12 @@ namespace ATMProject
         Thread atm1;
         Thread atm2;
         ThreadStart threadStart;
-        ATMForm secondFrom;
+        ATMForm1 firstForm;
+        ATMForm1 secondFrom;
         Boolean raceCondition;
         delegate void getbalance();
 
-        public ATMForm()
+        public ATMForm1()
         {
             InitializeComponent();
 
@@ -124,8 +125,10 @@ namespace ATMProject
             /*
             firstForm = new ATMForm();
             firstForm.Show();
+            threadStart = firstForm.showAccNumInput;
+            Thread atm3 = new System.Threading.Thread(new System.Threading.ThreadStart(threadStart));
             */
-            secondFrom = new ATMForm();
+            secondFrom = new ATMForm1();
             secondFrom.Show();
             threadStart = secondFrom.showAccNumInput;
             atm2 = new System.Threading.Thread(new System.Threading.ThreadStart(threadStart));
@@ -264,14 +267,18 @@ namespace ATMProject
             else
             {
                 MessageBox.Show("You have widthdrawn £10");
+
                 this.atm.getActiveAccount().decrementBalance(10);
-                if(sender == secondFrom)
+
+                if (sender == secondFrom)
                 {
-                    
+                    atm.getActiveAccount().decrementBalance(10);
+                    //secondFrom.atm.getActiveAccount().decrementBalance(10);
                 }
                 else
                 {
                     secondFrom.atm.getActiveAccount().decrementBalance(10);
+                    //atm.getActiveAccount().decrementBalance(10);
                 }
             }
 

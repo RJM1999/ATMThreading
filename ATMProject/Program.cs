@@ -16,7 +16,7 @@ namespace ATMProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ATMForm());
+            Application.Run(new ATMForm1());
         }
     }
 
