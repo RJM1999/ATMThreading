@@ -22,7 +22,9 @@ namespace ATMProject
 
         private void ATMForm_Load(object sender, EventArgs e)
         {
-
+            btn10.Visible = false;
+            btn50.Visible = false;
+            btn500.Visible = false;
         }
 
         private void hideAllElements()
