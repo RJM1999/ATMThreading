@@ -59,5 +59,10 @@ namespace ATMProject
             //Exit the program 
             Application.Exit();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

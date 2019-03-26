@@ -182,5 +182,10 @@ namespace ATMProject
 
             hideAllWithdrawOptions(); //Hide the options
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
