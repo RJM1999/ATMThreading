@@ -138,7 +138,11 @@ namespace ATMProject
                 }
                 else
                 {
-                    ATMLogin.raceConditionBarrier.SignalAndWait(); ////Wait until 2 withdraws are being attempted
+                    if (Program.getSemaTest() == true)
+                    {
+                        ATMLogin.raceConditionBarrier.SignalAndWait(); ////Wait until 2 withdraws are being attempted
+                    }
+
                     ATMLogin.semaphore.WaitOne(); //Entering critical code section
                     int localbalance = activeAccount.getBalance(); //Makea local balance and get it from the account
                     localbalance -= 50; //Take away 50
@@ -169,7 +173,11 @@ namespace ATMProject
                 }
                 else
                 {
-                    ATMLogin.raceConditionBarrier.SignalAndWait(); ////Wait until 2 withdraws are being attempted
+                    if (Program.getSemaTest() == true)
+                    {
+                        ATMLogin.raceConditionBarrier.SignalAndWait(); ////Wait until 2 withdraws are being attempted
+                    }
+
                     ATMLogin.semaphore.WaitOne(); //Entering critical code section
                     int localbalance = activeAccount.getBalance(); //Makea local balance and get it from the account
                     localbalance -= 500; //Take away 500
