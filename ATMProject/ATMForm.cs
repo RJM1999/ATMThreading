@@ -85,6 +85,9 @@ namespace ATMProject
                 //MessageBox.Show("You have widthdrawn £10");
                 activeAccount.decrementBalance(10);
             }
+            btn10.Visible = false;
+            btn50.Visible = false;
+            btn500.Visible = false;
 
         }
 
@@ -99,6 +102,9 @@ namespace ATMProject
                 MessageBox.Show("You have widthdrawn £50");
                 activeAccount.decrementBalance(50);
             }
+            btn10.Visible = false;
+            btn50.Visible = false;
+            btn500.Visible = false;
         }
 
         private void btn500_Click(object sender, EventArgs e)
@@ -112,6 +118,9 @@ namespace ATMProject
                 MessageBox.Show("You have widthdrawn £500");
                 activeAccount.decrementBalance(500);
             }
+            btn10.Visible = false;
+            btn50.Visible = false;
+            btn500.Visible = false;
         }
     }
 }
