@@ -87,5 +87,10 @@ namespace ATMProject
             //Close the current form
             this.Hide();
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
