@@ -78,7 +78,8 @@ namespace ATMProject
             }
             else
             {
-                Thread.Sleep(5000);
+                Thread.CurrentThread.Join(2000);
+                ATMLogin.raceConditionBarrier.SignalAndWait();
                 //MessageBox.Show("You have widthdrawn £10");
                 activeAccount.decrementBalance(10);
             }

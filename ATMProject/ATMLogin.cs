@@ -13,6 +13,9 @@ namespace ATMProject
 {
     public partial class ATMLogin : Form
     {
+        //For race c
+        public static Barrier raceConditionBarrier = new Barrier(2);
+        ManualResetEvent syncEvent = new ManualResetEvent(false);
         public ATMLogin()
         {
             InitializeComponent();
