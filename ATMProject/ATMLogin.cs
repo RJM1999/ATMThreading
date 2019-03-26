@@ -13,9 +13,9 @@ namespace ATMProject
 {
     public partial class ATMLogin : Form
     {
-        //For race c
-        public static Barrier raceConditionBarrier = new Barrier(2);
-        ManualResetEvent syncEvent = new ManualResetEvent(false);
+        //For race conditions
+        public static Barrier raceConditionBarrier = new Barrier(2); //Barrier for articifical wait
+        public static Semaphore semaphore = new Semaphore(1, 1); //Semaphore to stop race conditions
         public ATMLogin()
         {
             InitializeComponent();

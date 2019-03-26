@@ -6,8 +6,8 @@ namespace ATMProject
 {
     public partial class ATMForm : Form
     {
-        private Account activeAccount;
-        private readonly object balanceLock = new object();
+        //Fields for the class
+        private Account activeAccount; //The account we are currently looking at
 
         public ATMForm()
         {
@@ -16,15 +16,15 @@ namespace ATMProject
 
         public ATMForm(Account loginAccount)
         {
+            //Fill the account details in
             activeAccount = loginAccount;
             InitializeComponent();
         }
 
         private void ATMForm_Load(object sender, EventArgs e)
         {
-            btn10.Visible = false;
-            btn50.Visible = false;
-            btn500.Visible = false;
+            //Not an option yet
+            hideAllWithdrawOptions();
         }
 
         private void hideAllElements()
@@ -47,13 +47,13 @@ namespace ATMProject
 
         private void btnWithdrawCash_Click(object sender, EventArgs e)
         {
-            btn10.Visible = true;
-            btn50.Visible = true;
-            btn500.Visible = true;
+            //Show withdraw options
+            showAllWithdrawOptions();
         }
 
         private void btnCheckBalance_Click(object sender, EventArgs e)
         {
+            //Show balance on screen
             lblBalance.Text = "Your balance is £" + activeAccount.getBalance().ToString();
             lblBalance.Visible = true;
         }
@@ -70,70 +70,113 @@ namespace ATMProject
             btnExit.Visible = true;
         }
 
+        private void hideAllWithdrawOptions()
+        {
+            btn10.Visible = false;
+            btn50.Visible = false;
+            btn500.Visible = false;
+        }
+
+        private void showAllWithdrawOptions()
+        {
+            btn10.Visible = true;
+            btn50.Visible = true;
+            btn500.Visible = true;
+        }
+
 
         private void btn10_Click(object sender, EventArgs e)
         {
-            if(activeAccount.getBalance() < 10)
-            {
-                
+            if(activeAccount.getBalance() < 10) //Not enough money
+            {              
                 MessageBox.Show("You dont have enough funds", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                //Thread.CurrentThread.Join(2000);
-                if(Program.getRaceCon() == true)
+                if(Program.getRaceCon() == true) //Are we looking for race conditions 
                 {
-                    ATMLogin.raceConditionBarrier.SignalAndWait();
-                    Thread.Sleep(3000);
-                    int localbalance = activeAccount.getBalance();
-                    localbalance -= 10;
-                    activeAccount.setBalance(localbalance);
+                    ATMLogin.raceConditionBarrier.SignalAndWait(); //Wait until 2 withdraws are being attempted 
+                    int localbalance = activeAccount.getBalance(); //Make a local balance and get it from the active account
+                    localbalance -= 10; //Take away 10
+                    activeAccount.setBalance(localbalance); //Set the balance
                 }
                 else
                 {
-                    activeAccount.decrementBalance(10);
-                }                
-                //MessageBox.Show("You have widthdrawn £10");
+                    ATMLogin.raceConditionBarrier.SignalAndWait(); ////Wait until 2 withdraws are being attempted
+                    ATMLogin.semaphore.WaitOne(); //Entering critical code section
+                    int localbalance = activeAccount.getBalance(); //Makea local balance and get it from the account
+                    localbalance -= 10; //Take away 10
+                    activeAccount.setBalance(localbalance); //Update the active accounts balance
+                    ATMLogin.semaphore.Release(); //Exit the critical code
+                }
+                
+                MessageBox.Show("You have widthdrawn £10"); //Success message
             }
-            btn10.Visible = false;
-            btn50.Visible = false;
-            btn500.Visible = false;
+
+            hideAllWithdrawOptions(); //Hide the money options
 
         }
 
         private void btn50_Click(object sender, EventArgs e)
         {
-            if (activeAccount.getBalance() < 50)
+            if (activeAccount.getBalance() < 50) //Not enough money for £50
             {
-                MessageBox.Show("You dont have enough funds", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You dont have enough funds", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); //Error message
             }
             else
             {
-                MessageBox.Show("You have widthdrawn £50");
-                activeAccount.decrementBalance(50);
+                if (Program.getRaceCon() == true) //Are we looking for race conditions
+                {
+                    ATMLogin.raceConditionBarrier.SignalAndWait(); //Wait until 2 accounts are attempting a with draw
+                    int localbalance = activeAccount.getBalance(); //Make a local balance 
+                    localbalance -= 50; //Take away 50
+                    activeAccount.setBalance(localbalance); //Update the active account
+                }
+                else
+                {
+                    ATMLogin.raceConditionBarrier.SignalAndWait(); ////Wait until 2 withdraws are being attempted
+                    ATMLogin.semaphore.WaitOne(); //Entering critical code section
+                    int localbalance = activeAccount.getBalance(); //Makea local balance and get it from the account
+                    localbalance -= 50; //Take away 50
+                    activeAccount.setBalance(localbalance); //Update the active accounts balance
+                    ATMLogin.semaphore.Release(); //Exit the critical code
+                }
+
+                MessageBox.Show("You have widthdrawn £50"); //Sucess message
             }
-            btn10.Visible = false;
-            btn50.Visible = false;
-            btn500.Visible = false;
+
+            hideAllWithdrawOptions();
         }
 
         private void btn500_Click(object sender, EventArgs e)
         {
-            if (activeAccount.getBalance() < 500)
+            if (activeAccount.getBalance() < 500) //Not enough money
             {
                 MessageBox.Show("You dont have enough funds", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("You have widthdrawn £500");
-                activeAccount.decrementBalance(500);
+                if (Program.getRaceCon() == true) //Are we looking for race conditions
+                {
+                    ATMLogin.raceConditionBarrier.SignalAndWait(); //Wait until 2 transactions are attempted 
+                    int localbalance = activeAccount.getBalance(); //Make the local balance
+                    localbalance -= 500; //Take away 500
+                    activeAccount.setBalance(localbalance); //Update the code
+                }
+                else
+                {
+                    ATMLogin.raceConditionBarrier.SignalAndWait(); ////Wait until 2 withdraws are being attempted
+                    ATMLogin.semaphore.WaitOne(); //Entering critical code section
+                    int localbalance = activeAccount.getBalance(); //Makea local balance and get it from the account
+                    localbalance -= 500; //Take away 500
+                    activeAccount.setBalance(localbalance); //Update the active accounts balance
+                    ATMLogin.semaphore.Release(); //Exit the critical code
+                }
+
+                MessageBox.Show("You have widthdrawn £500"); //Success message
             }
-            btn10.Visible = false;
-            btn50.Visible = false;
-            btn500.Visible = false;
+
+            hideAllWithdrawOptions(); //Hide the options
         }
     }
 }
-
-
-
