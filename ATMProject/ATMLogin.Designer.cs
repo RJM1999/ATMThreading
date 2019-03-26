@@ -54,7 +54,7 @@
             // txtBxAccNum
             // 
             this.txtBxAccNum.Location = new System.Drawing.Point(435, 166);
-            this.txtBxAccNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBxAccNum.Margin = new System.Windows.Forms.Padding(4);
             this.txtBxAccNum.Name = "txtBxAccNum";
             this.txtBxAccNum.Size = new System.Drawing.Size(228, 22);
             this.txtBxAccNum.TabIndex = 1;
@@ -72,7 +72,7 @@
             // txtBxPIN
             // 
             this.txtBxPIN.Location = new System.Drawing.Point(435, 213);
-            this.txtBxPIN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBxPIN.Margin = new System.Windows.Forms.Padding(4);
             this.txtBxPIN.Name = "txtBxPIN";
             this.txtBxPIN.Size = new System.Drawing.Size(227, 22);
             this.txtBxPIN.TabIndex = 3;
@@ -80,7 +80,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(409, 270);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(280, 54);
             this.btnSubmit.TabIndex = 4;
@@ -91,7 +91,7 @@
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(729, 270);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(144, 54);
             this.btnExit.TabIndex = 5;
@@ -123,6 +123,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -144,7 +145,7 @@
             this.Controls.Add(this.lblAccNum);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ATMLogin";
             this.Text = "ATMLogin";
             this.menuStrip1.ResumeLayout(false);

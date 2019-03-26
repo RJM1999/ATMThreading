@@ -42,7 +42,7 @@
             // btnWithRace
             // 
             this.btnWithRace.Location = new System.Drawing.Point(349, 174);
-            this.btnWithRace.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWithRace.Margin = new System.Windows.Forms.Padding(4);
             this.btnWithRace.Name = "btnWithRace";
             this.btnWithRace.Size = new System.Drawing.Size(328, 57);
             this.btnWithRace.TabIndex = 0;
@@ -53,7 +53,7 @@
             // btnWithoutRace
             // 
             this.btnWithoutRace.Location = new System.Drawing.Point(351, 251);
-            this.btnWithoutRace.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWithoutRace.Margin = new System.Windows.Forms.Padding(4);
             this.btnWithoutRace.Name = "btnWithoutRace";
             this.btnWithoutRace.Size = new System.Drawing.Size(325, 60);
             this.btnWithoutRace.TabIndex = 1;
@@ -64,7 +64,7 @@
             // btnWithSemaTest
             // 
             this.btnWithSemaTest.Location = new System.Drawing.Point(351, 177);
-            this.btnWithSemaTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWithSemaTest.Margin = new System.Windows.Forms.Padding(4);
             this.btnWithSemaTest.Name = "btnWithSemaTest";
             this.btnWithSemaTest.Size = new System.Drawing.Size(323, 53);
             this.btnWithSemaTest.TabIndex = 2;
@@ -75,7 +75,7 @@
             // btnWithoutSemaTest
             // 
             this.btnWithoutSemaTest.Location = new System.Drawing.Point(355, 254);
-            this.btnWithoutSemaTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWithoutSemaTest.Margin = new System.Windows.Forms.Padding(4);
             this.btnWithoutSemaTest.Name = "btnWithoutSemaTest";
             this.btnWithoutSemaTest.Size = new System.Drawing.Size(317, 57);
             this.btnWithoutSemaTest.TabIndex = 3;
@@ -107,6 +107,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -126,7 +127,7 @@
             this.Controls.Add(this.btnWithRace);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ATMStartScreen";
             this.Text = "startScreen";
             this.menuStrip1.ResumeLayout(false);
