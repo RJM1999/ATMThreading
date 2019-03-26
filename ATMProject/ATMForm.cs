@@ -8,8 +8,7 @@ namespace ATMProject
     {
         private Account activeAccount;
         private readonly object balanceLock = new object();
-        private int delayCheck = 1;
-        ATM atm;
+
         public ATMForm()
         {
             InitializeComponent();          
@@ -23,9 +22,7 @@ namespace ATMProject
 
         private void ATMForm_Load(object sender, EventArgs e)
         {
-            btn10.Visible = false;
-            btn50.Visible = false;
-            btn500.Visible = false;
+
         }
 
         private void hideAllElements()
@@ -81,20 +78,10 @@ namespace ATMProject
             }
             else
             {
-                if (delayCheck == 1)
-                {
-                    delayCheck = 0;
-                    Thread.Sleep(5000);
-                }
-                else
-                {
-                    //MessageBox.Show("You have widthdrawn £10"); 
-                    delayCheck = 1;
-                }               
+                Thread.CurrentThread.Join(2000);
+                ATMLogin.raceConditionBarrier.SignalAndWait();
+                //MessageBox.Show("You have widthdrawn £10");
                 activeAccount.decrementBalance(10);
-                
-
-
             }
 
         }
@@ -107,16 +94,7 @@ namespace ATMProject
             }
             else
             {
-                if (delayCheck == 1)
-                {
-                    delayCheck = 0;
-                    Thread.Sleep(5000);                  
-                }
-                else
-                {
-                    //MessageBox.Show("You have widthdrawn £50"); 
-                    delayCheck = 1;
-                }
+                MessageBox.Show("You have widthdrawn £50");
                 activeAccount.decrementBalance(50);
             }
         }
@@ -129,19 +107,8 @@ namespace ATMProject
             }
             else
             {
-                if (delayCheck == 1)
-                {
-                    delayCheck = 0;
-                    Thread.Sleep(5000);
-                }
-                else
-                {
-                    //MessageBox.Show("You have widthdrawn £500"); 
-                    delayCheck = 1;
-                }
+                MessageBox.Show("You have widthdrawn £500");
                 activeAccount.decrementBalance(500);
-                
-                
             }
         }
     }

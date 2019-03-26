@@ -34,6 +34,3 @@ C:\Users\Ross\Source\Repos\ATMThreading\ATMProject\obj\Debug\ATMProject.csproj.G
 C:\Users\Ross\Source\Repos\ATMThreading\ATMProject\obj\Debug\ATMProject.csproj.CoreCompileInputs.cache
 C:\Users\Ross\Source\Repos\ATMThreading\ATMProject\obj\Debug\ATMProject.exe
 C:\Users\Ross\Source\Repos\ATMThreading\ATMProject\obj\Debug\ATMProject.pdb
-C:\Users\Ross\Source\Repos\ATMThreading\ATMProject\obj\Debug\ATMProject.csprojAssemblyReference.cache
-C:\Users\Ryan\Source\Repos\ATMThreading\ATMProject\obj\Debug\ATMProject.ATMLogin.resources
-C:\Users\Ryan\Source\Repos\ATMThreading\ATMProject\obj\Debug\ATMProject.ATMStartScreen.resources
