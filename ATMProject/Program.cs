@@ -15,7 +15,10 @@ namespace ATMProject
         {
             raceConditions = input;
         }
-
+        public static Boolean getRaceCon()
+        {
+            return raceConditions;
+        }
         public static Account returnAccount(int accNum, int PIN)
         {
             for(int i = 0; i < Accounts.Length; i++)
