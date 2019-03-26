@@ -19,7 +19,16 @@ namespace ATMProject
         {
             if (this.balance >= amount)
             {
-                balance -= amount;
+                if(Program.getRaceCon() == true)
+                {
+                    int localbalance = this.balance;
+                    localbalance -= amount;
+                    this.balance = localbalance;
+                }
+                else
+                {
+                    balance -= amount;
+                }               
                 return true;
             }
             else

@@ -80,10 +80,15 @@ namespace ATMProject
             }
             else
             {
-                Thread.CurrentThread.Join(2000);
+                //Thread.CurrentThread.Join(2000);
+
                 ATMLogin.raceConditionBarrier.SignalAndWait();
+                Thread.Sleep(3000);
+                int localbalance = activeAccount.getBalance();
+                localbalance -= 10;
+                activeAccount.setBalance(localbalance);
+                //activeAccount.decrementBalance(10);
                 //MessageBox.Show("You have widthdrawn £10");
-                activeAccount.decrementBalance(10);
             }
             btn10.Visible = false;
             btn50.Visible = false;
