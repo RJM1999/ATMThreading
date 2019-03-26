@@ -9,6 +9,7 @@ namespace ATMProject
     static class Program
     {
         static Boolean raceConditions;
+        static Boolean semaphoreTest;
         static Account[] Accounts;
 
         public static void setRaceConditions(Boolean input)
@@ -19,6 +20,17 @@ namespace ATMProject
         {
             return raceConditions;
         }
+
+        public static void setSemaTest(Boolean input)
+        {
+            semaphoreTest = input;
+        }
+        public static Boolean getSemaTest()
+        {
+            return semaphoreTest;
+        }
+
+
         public static Account returnAccount(int accNum, int PIN)
         {
             for(int i = 0; i < Accounts.Length; i++)
