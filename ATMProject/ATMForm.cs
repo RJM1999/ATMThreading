@@ -205,7 +205,7 @@ namespace ATMProject
                "If without race conditions is ran another form appears for a semaphore test, " +
                "if you run the program with this and you have logged into 2 ATMs with the same account number, one ATM will stop until an amount is withdrawn from the" +
                " other ATM.You can then check the balance and the correct balance will appear. \n \n" +
-               "If you wish to run more than 2 ATMs with different account numbers please run: Run without race conditions -> Run without semaphore test and you can run as many as you wish.");
+               "If you wish to run more than 2 ATMs with different account numbers please run: Run without race conditions -> Run without semaphore test and you can run as many as you wish.", "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
