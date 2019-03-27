@@ -11,6 +11,11 @@ using System.Windows.Forms;
 
 namespace ATMProject
 {
+    /*
+     *  Group 1 AC22005 ATM Assignment
+     *  Ross Maider 170010429
+     *  Ryan Crampton 170013546
+     */
     public partial class ATMLogin : Form
     {
         //For race conditions
